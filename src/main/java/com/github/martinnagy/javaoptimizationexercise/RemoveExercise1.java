@@ -21,12 +21,13 @@ public class RemoveExercise1 {
     }
 
     private static void optimizeMe(List<Integer> numbers) {
-        for (ListIterator<Integer> iterator = numbers.listIterator(); iterator.hasNext(); ) {
-            Integer number = iterator.next();
-            if (number % 2 == 0) {
-                remove(iterator);
-            }
-        }
+        numbers.removeIf(integer -> integer % 2 == 0);
+//        for (ListIterator<Integer> iterator = numbers.listIterator(); iterator.hasNext(); ) {
+//            Integer number = iterator.next();
+//            if (number % 2 == 0) {
+//                remove(iterator);
+//            }
+//        }
     }
 
     private static void remove(ListIterator<Integer> iterator) {
