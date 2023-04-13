@@ -23,13 +23,19 @@ public class ForExercise1 {
     }
 
     private static void optimizeMe(List<Department> departments) {
-        for (Department department : departments) {
-            if (department.name().matches(".*2$")) {
-                for (Employee employee : department.employees()) {
-                    System.out.println(department.departmentId() + " " + employee.employeeId());
-                }
-            }
-        }
+        departments
+                .forEach(department -> {
+                    if (department.name().matches(".*2$")) {
+                        department.employees().forEach(employee -> System.out.println(department.departmentId() + " " + employee.employeeId()));
+                    }
+                });
+//        for (Department department : departments) {
+//            if (department.name().matches(".*2$")) {
+//                for (Employee employee : department.employees()) {
+//                    System.out.println(department.departmentId() + " " + employee.employeeId());
+//                }
+//            }
+//        }
     }
 
     private record Employee(int employeeId) {
