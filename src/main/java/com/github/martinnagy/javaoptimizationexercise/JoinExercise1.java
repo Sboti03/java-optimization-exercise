@@ -1,10 +1,11 @@
 package com.github.martinnagy.javaoptimizationexercise;
 
-import java.util.List;
-import java.util.Random;
-import java.util.stream.IntStream;
-
 import org.apache.commons.lang3.time.StopWatch;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class JoinExercise1 {
     public static void main(String[] args) {
@@ -22,13 +23,14 @@ public class JoinExercise1 {
     }
 
     private static void optimizeMe(List<Employee> employees, List<Department> departments) {
-        for (Employee employee : employees) {
-            for (Department department : departments) {
-                if (employee.departmentId() == department.departmentId()) {
-                    System.out.println(employee + "\t" + department);
-                }
-            }
-        }
+
+        Map<Integer, Department> departmentMap = departments.stream()
+                .collect(Collectors.toMap(Department::departmentId, Function.identity()));
+
+        employees.forEach(employee -> {
+            Department department = departmentMap.get(employee.departmentId);
+            System.out.println(employee + "\t" + department);
+        });
     }
 
     private record Employee(int employeeId, int departmentId) {
