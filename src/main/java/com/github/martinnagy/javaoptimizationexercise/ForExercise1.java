@@ -24,8 +24,8 @@ public class ForExercise1 {
 
     private static void optimizeMe(List<Department> departments) {
         for (Department department : departments) {
-            for (Employee employee : department.employees()) {
-                if (department.name().matches(".*2$")) {
+            if (department.name().matches(".*2$")) {
+                for (Employee employee : department.employees()) {
                     System.out.println(department.departmentId() + " " + employee.employeeId());
                 }
             }
