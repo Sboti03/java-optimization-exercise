@@ -10,13 +10,11 @@ public class StringExercise2 {
     }
 
     private static void optimizeMe() {
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < 50_000_000; i++) {
-            if (i > 0) {
-                sb.append(", ");
-            }
-            sb.append(i);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 100_00000; i++) {
+            sb.append(i).append(", ");
         }
+        sb.delete(sb.length() - 2, sb.length() -1);
         System.out.println(sb);
     }
 }

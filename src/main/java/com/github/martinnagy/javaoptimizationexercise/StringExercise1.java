@@ -11,7 +11,7 @@ public class StringExercise1 {
 
     private static void optimizeMe() {
         StringBuilder string = new StringBuilder();
-        for (int i = 0; i < 100_000; i++) {
+        for (int i = 0; i < 100_00000; i++) {
             if (i > 0) {
                 string.append(", ");
             }
