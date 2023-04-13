@@ -25,18 +25,13 @@ public class MapExercise1 {
         Map<Name, String> cache = new HashMap<>();
 
         for (Name name : names) {
-            if (cache.containsKey(name)) {
-                System.out.println(cache.get(name));
-            } else {
-                String concat = name.getFirstName() + " " + name.getLastName();
-                cache.put(name, concat);
-                System.out.println(concat);
-            }
+            String value = cache.computeIfAbsent(name, n -> n.getFirstName() + " " + n.getLastName());
+            System.out.println(value);
         }
     }
 
     private static String randomLongString(Random random) {
-        return StringUtils.repeat(random.nextInt(100) + "", 100);
+        return StringUtils.repeat(random.nextInt(10) + "", 50);
     }
 
     private static class Name {
