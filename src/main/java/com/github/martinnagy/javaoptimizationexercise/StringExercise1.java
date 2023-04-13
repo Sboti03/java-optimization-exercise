@@ -10,12 +10,12 @@ public class StringExercise1 {
     }
 
     private static void optimizeMe() {
-        String string = "";
+        StringBuilder string = new StringBuilder();
         for (int i = 0; i < 100_000; i++) {
             if (i > 0) {
-                string += ", ";
+                string.append(", ");
             }
-            string += i;
+            string.append(i);
         }
         System.out.println(string);
     }
