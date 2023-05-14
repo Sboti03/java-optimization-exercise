@@ -1,9 +1,6 @@
 package com.github.martinnagy.javaoptimizationexercise;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.StringUtils;
@@ -41,6 +38,19 @@ public class MapExercise1 {
         public Name(String firstName, String lastName) {
             this.firstName = firstName;
             this.lastName = lastName;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Name name = (Name) o;
+            return Objects.equals(firstName, name.firstName) && Objects.equals(lastName, name.lastName);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(firstName, lastName);
         }
 
         public String getFirstName() {

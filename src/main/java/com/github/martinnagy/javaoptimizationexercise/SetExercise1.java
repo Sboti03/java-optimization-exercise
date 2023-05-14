@@ -1,5 +1,6 @@
 package com.github.martinnagy.javaoptimizationexercise;
 
+import java.util.EnumSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ public class SetExercise1 {
     private static void optimizeMe() {
         Random random = new Random(0);
         Colors[] colorsArray = Colors.values();
-        Set<Colors> myColors = Set.of(Colors.BLACK, Colors.BLUE, Colors.PURPLE, Colors.ORANGE, Colors.TEAL);
+        Set<Colors> myColors = EnumSet.of(Colors.BLACK, Colors.BLUE, Colors.PURPLE, Colors.ORANGE, Colors.TEAL);
 
         for (int i = 0; i < 500_000_000; i++) {
             myColors.contains(colorsArray[random.nextInt(colorsArray.length)]);

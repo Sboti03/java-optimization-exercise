@@ -1,5 +1,7 @@
 package com.github.martinnagy.javaoptimizationexercise;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -19,8 +21,9 @@ public class MinMaxExercise1 {
     }
 
     private static void optimizeMe(List<Integer> numbers) {
-        System.out.println("Min: " + numbers.stream().mapToInt(Integer::intValue).min().orElseThrow());
-        System.out.println("Max: " + numbers.stream().mapToInt(Integer::intValue).max().orElseThrow());
+        var sd = numbers.parallelStream().mapToInt(Integer::intValue).summaryStatistics();
+        System.out.println("Min: " + sd.getMin());
+        System.out.println("Max: " + sd.getMax());
     }
 
 }
